@@ -1,11 +1,6 @@
-**PLEASE NOTICE:** This project is deprecated and will not be maintained anymore. You can use PIP to install prebuildt MOSEK packages as follows:
+# MOSEK with Python 3.8 support
 
-```
-pip install -f http://download.mosek.com/stable/wheel/index.html Mosek
-```
-
-Or, using Anaconda, install as 
-
-```
-conda install -c mosek mosek
+Install with:
+```bash
+pip install git+ssh://git@github.com/lsorber/Mosek.pip.git
 ```
