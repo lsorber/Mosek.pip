@@ -186,7 +186,7 @@ moseklibs = set(moseklibs)
 if dldir is not None and not os.path.isdir(dldir):
     dldir = None
 
-pkgpath = '/{state}/{0}.{1}.0.{2}/{3}'.format(
+pkgpath = '/{state}/{0}.{1}.{2}/{3}'.format(
     mosekmajorver, mosekminorver, mosekrevision, pkgname, state=state)
 unpackdir = os.path.abspath(
     os.path.join(os.path.abspath(os.path.dirname(__file__)), 'src'))
