@@ -211,6 +211,7 @@ def _pre_install():
 
     if not os.path.exists(pkgfilename):
         url = "http://download.mosek.com" + pkgpath
+        print("Downloading... " + url)
 
         if sys.version_info.major == 2:
             import urllib
