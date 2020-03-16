@@ -97,6 +97,10 @@ libs = {
             'libmosek64.so.8.1', 'libmosekxx8_1.so', 'libmosekscopt8_1.so',
             'libiomp5.so', 'libcilkrts.so.5'
         ],
+        '9.2': [
+            'libmosekjava9_2.so', 'libmosekxx9_2.so', 'libmosek64.so.9.2',
+            'libcilkrts.so.5'
+        ],
     },
     'linux32x86': {
         '7.0': [
@@ -125,6 +129,10 @@ libs = {
             'libmosek64.8.1.dylib', 'libmosekxx8.1.dylib',
             'libmosekscopt8.1.dylib', 'libcilkrts.5.dylib'
         ],
+        '9.2': [
+            'libcilkrts.5.dylib', 'libmosekxx9_2.dylib',
+            'libmosek64.9.2.dylib', 'libmosek64.dylib'
+        ],
     },
 }
 
@@ -133,6 +141,7 @@ licensepdfd = {
     '7.1': ['mosek', '7', 'license.pdf'],
     '8.0': ['mosek', '8', 'doc', 'licensing.pdf'],
     '8.1': ['mosek', '8', 'doc', 'licensing.pdf'],
+    '9.2': ['mosek', '9', 'doc', 'licensing.pdf'],
 }
 
 pkgnames = {
