@@ -190,8 +190,7 @@ pkgpath = '/{state}/{0}.{1}.{2}/{3}'.format(
     mosekmajorver, mosekminorver, mosekrevision, pkgname, state=state)
 unpackdir = os.path.abspath(
     os.path.join(os.path.abspath(os.path.dirname(__file__)), 'src'))
-distroplatformpfx = 'mosek/{0}/tools/platform/{1}'.format(mosekmajorver,
-                                                          pfname)
+distroplatformpfx = 'mosek/{0}.{1}/tools/platform/{2}'.format(mosekmajorver, mosekminorver, pfname)
 
 ######################
 # Get mosek package
