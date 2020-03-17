@@ -259,11 +259,11 @@ def _post_install(sitedir):
     except:
         pass
 
-    libsrcdir = os.path.join(unpackdir, 'mosek', mosekmajorver, 'tools',
+    libsrcdir = os.path.join(unpackdir, 'mosek', mosekmajorver + '.' + mosekminorver, 'tools',
                              'platform', pfname, 'bin')
 
     shutil.copytree(
-        os.path.join('src', 'mosek', mosekmajorver, 'tools', 'platform',
+        os.path.join('src', 'mosek', mosekmajorver + '.' + mosekminorver, 'tools', 'platform',
                      pfname, 'python', str(sys.version_info.major), 'mosek'),
         os.path.join(sitedir, 'mosek'))
 
