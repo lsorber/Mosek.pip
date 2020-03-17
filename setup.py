@@ -141,7 +141,7 @@ licensepdfd = {
     '7.1': ['mosek', '7', 'license.pdf'],
     '8.0': ['mosek', '8', 'doc', 'licensing.pdf'],
     '8.1': ['mosek', '8', 'doc', 'licensing.pdf'],
-    '9.2': ['mosek', '9', 'doc', 'licensing.pdf'],
+    '9.2': ['mosek', '9.2', 'doc', 'licensing.pdf'],
 }
 
 pkgnames = {
