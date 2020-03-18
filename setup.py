@@ -261,6 +261,15 @@ def _post_install(sitedir):
 
     libsrcdir = os.path.join(unpackdir, 'mosek', mosekmajorver + '.' + mosekminorver, 'tools',
                              'platform', pfname, 'bin')
+    
+    # Patch libraries on MacOS
+    # https://docs.mosek.com/9.1/install/installation.html#macos
+    pf = platform.system()
+    if pf == 'Darwin':
+        print('Patching .dylibs with otool...')
+        os.sytem('cd ' + libsrcdir + '; python install.py; cd -')
+    else:
+        print('Not on Darwin, skipping .dylib patch...')
 
     shutil.copytree(
         os.path.join('src', 'mosek', mosekmajorver + '.' + mosekminorver, 'tools', 'platform',
