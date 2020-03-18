@@ -267,7 +267,7 @@ def _post_install(sitedir):
     pf = platform.system()
     if pf == 'Darwin':
         print('Patching .dylibs with otool...')
-        os.sytem('cd ' + libsrcdir + '; python install.py; cd -')
+        os.system('cd ' + libsrcdir + '; python install.py; cd -')
     else:
         print('Not on Darwin, skipping .dylib patch...')
 
