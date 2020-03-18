@@ -292,9 +292,10 @@ def _post_install(sitedir):
         f.write('__mosekinstpath__ = os.path.abspath(os.path.dirame(__file__))\n')
         f.write('\n')
 
-    shutil.copy(
-        os.path.join('src', *licensepdfd[mskverkey]),
-        os.path.join(sitedir, 'mosek'))
+    # Skip copying license pdf.
+    # shutil.copy(
+    #     os.path.join('src', *licensepdfd[mskverkey]),
+    #     os.path.join(sitedir, 'mosek'))
 
     print("""
 *** MOSEK for Python ***
