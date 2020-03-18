@@ -232,6 +232,8 @@ def _pre_install():
                                os.path.dirname(tmem.filename[len(pypfx):]))
                 elif os.path.basename(tmem.filename) in moseklibs:
                     zf.extract(tmem, unpackdir)
+                elif 'bin' in os.path.basename(tmem.filename):
+                    zf.extract(tmem, unpackdir)
                 elif tmem.filename == licensepdf:
                     zf.extract(tmem, unpackdir)
     else:
