@@ -265,7 +265,7 @@ def _post_install(sitedir):
 
     shutil.copytree(
         os.path.join('src', 'mosek', mosekmajorver + '.' + mosekminorver, 'tools', 'platform',
-                     pfname, 'python', str(sys.version_info.major), 'mosek'),
+                     pfname, 'purepython', str(sys.version_info.major), 'mosek'),
         os.path.join(sitedir, 'mosek'))
 
     tgtpath = os.path.join(sitedir, 'mosek')
