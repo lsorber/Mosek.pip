@@ -266,7 +266,7 @@ def _post_install(sitedir):
     # https://docs.mosek.com/9.1/install/installation.html#macos
     pf = platform.system()
     if pf == 'Darwin':
-        cmd = 'cd ' + libsrcdir + ' && python install.py && cd -'
+        cmd = 'python ' + os.path.join(libsrcdir, 'install.py')
         print('Patching .dylibs with otool...')
         print(cmd)
         os.system(cmd)
