@@ -220,7 +220,7 @@ def _pre_install():
             urllib.request.urlretrieve(url, pkgfilename)
 
     licensepdf = '/'.join(licensepdfd[mskverkey])
-    pypfx = '{0}/python/{1}/mosek'.format(distroplatformpfx, sys.version_info.major)
+    pypfx = '{0}/purepython/{1}/mosek'.format(distroplatformpfx, sys.version_info.major)
 
     if os.path.splitext(pkgname)[-1] == '.zip':
         import zipfile
