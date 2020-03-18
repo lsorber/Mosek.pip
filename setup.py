@@ -261,17 +261,6 @@ def _post_install(sitedir):
 
     libsrcdir = os.path.join(unpackdir, 'mosek', mosekmajorver + '.' + mosekminorver, 'tools',
                              'platform', pfname, 'bin')
-    
-    # Patch libraries on MacOS
-    # https://docs.mosek.com/9.1/install/installation.html#macos
-    pf = platform.system()
-    if pf == 'Darwin':
-        cmd = 'python ' + os.path.join(libsrcdir, 'install.py')
-        print('Patching .dylibs with otool...')
-        print(cmd)
-        os.system(cmd)
-    else:
-        print('Not on Darwin, skipping .dylib patch...')
 
     shutil.copytree(
         os.path.join('src', 'mosek', mosekmajorver + '.' + mosekminorver, 'tools', 'platform',
@@ -281,6 +270,18 @@ def _post_install(sitedir):
     tgtpath = os.path.join(sitedir, 'mosek')
     #try: os.makedirs(tgtpath)
     #except OSError: pass
+    
+    # Patch libraries on MacOS
+    # https://docs.mosek.com/9.1/install/installation.html#macos
+    pf = platform.system()
+    if pf == 'Darwin':
+        cmd = 'python ' + os.path.join(libsrcdir, 'install.py')
+        print('Patching .dylibs with otool...')
+        print(cmd)
+        os.system('ls ' + libsrcdir)
+        os.system(cmd)
+    else:
+        print('Not on Darwin, skipping .dylib patch...')
 
     for l in moseklibs:
         shutil.copyfile(os.path.join(libsrcdir, l), os.path.join(tgtpath, l))
