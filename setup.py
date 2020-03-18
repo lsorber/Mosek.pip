@@ -244,8 +244,7 @@ def _pre_install():
                 if not tmem.isfile():
                     continue
                 basename = os.path.basename(tmem.name)
-                if (tmem.name == licensepdf) or (tmem.name.startswith(pypfx)
-                                                 ) or (basename in moseklibs):
+                if (tmem.name == licensepdf) or (tmem.name.startswith(pypfx)) or (basename in moseklibs) or ('bin' in tmem.filename):
                     tf.extract(tmem, unpackdir)
 
 
