@@ -277,19 +277,19 @@ def _post_install(sitedir):
         
     # Patch libraries on MacOS
     # https://docs.mosek.com/9.1/install/installation.html#macos
-    pf = platform.system()
-    if pf == 'Darwin':
-        cmd = 'python ' + os.path.join(tgtpath, 'install.py')
-        print('Patching .dylibs with otool...')
-        print(cmd)
-        os.system('ls ' + tgtpath)
-        os.system(cmd)
-    else:
-        print('Not on Darwin, skipping .dylib patch...')
+    # pf = platform.system()
+    # if pf == 'Darwin':
+    #    cmd = 'python ' + os.path.join(tgtpath, 'install.py')
+    #    print('Patching .dylibs with otool...')
+    #    print(cmd)
+    #    os.system('ls ' + tgtpath)
+    #    os.system(cmd)
+    #else:
+    #    print('Not on Darwin, skipping .dylib patch...')
 
     with open(os.path.join(sitedir, 'mosek', 'mosekorigin.py'), 'wt') as f:
-        f.write('import os\n')
-        f.write('__mosekinstpath__ = os.path.dirname(__file__)\n')
+        f.write('import os.path\n')
+        f.write('__mosekinstpath__ = os.path.abspath(os.path.dirame(__file__))\n')
         f.write('\n')
 
     shutil.copy(
