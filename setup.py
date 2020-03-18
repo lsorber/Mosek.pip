@@ -131,7 +131,7 @@ libs = {
         ],
         '9.2': [
             'libcilkrts.5.dylib', 'libmosekxx9_2.dylib',
-            'libmosek64.9.2.dylib', 'libmosek64.dylib'
+            'libmosek64.9.2.dylib', 'libmosek64.dylib', 'install.py'
         ],
     },
 }
@@ -271,21 +271,21 @@ def _post_install(sitedir):
     tgtpath = os.path.join(sitedir, 'mosek')
     #try: os.makedirs(tgtpath)
     #except OSError: pass
-    
+
+    for l in moseklibs:
+        shutil.copyfile(os.path.join(libsrcdir, l), os.path.join(tgtpath, l))
+        
     # Patch libraries on MacOS
     # https://docs.mosek.com/9.1/install/installation.html#macos
     pf = platform.system()
     if pf == 'Darwin':
-        cmd = 'python ' + os.path.join(libsrcdir, 'install.py')
+        cmd = 'python ' + os.path.join(tgtpath, 'install.py')
         print('Patching .dylibs with otool...')
         print(cmd)
-        os.system('ls ' + libsrcdir)
+        os.system('ls ' + tgtpath)
         os.system(cmd)
     else:
         print('Not on Darwin, skipping .dylib patch...')
-
-    for l in moseklibs:
-        shutil.copyfile(os.path.join(libsrcdir, l), os.path.join(tgtpath, l))
 
     with open(os.path.join(sitedir, 'mosek', 'mosekorigin.py'), 'wt') as f:
         f.write('import os\n')
