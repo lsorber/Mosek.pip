@@ -289,7 +289,7 @@ def _post_install(sitedir):
 
     with open(os.path.join(sitedir, 'mosek', 'mosekorigin.py'), 'wt') as f:
         f.write('import os.path\n')
-        f.write('__mosekinstpath__ = os.path.abspath(os.path.dirame(__file__))\n')
+        f.write('__mosekinstpath__ = os.path.abspath(os.path.dirname(__file__))\n')
         f.write('\n')
 
     # Skip copying license pdf.
